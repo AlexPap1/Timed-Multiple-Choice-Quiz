@@ -15,3 +15,9 @@
     cursor: pointer;
     text-align: center;
 }
+
+#high-scores {
+    position:absolute;
+    top:0px; left: 25px;
+}
+
