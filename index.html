@@ -5,16 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Timed MC Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Assets/style.css" />
   </head>
-  <body>
+
+  <!--Countdown / high scores-->
+  <body id="body">
     <div class="container">
         <h2 id="countdown"></h2>
         <h2 id="high-scores">View High Scores!</h2>
     </div>
+    <h3 id="welcome">Welcome! Test your coding knowledge with this short quiz. Press Start to begin!</h3>
+<!--start button-->
     <div class="start-button">
         <button class="btn" id="start-btn">START!</button>
     </div>
     <script src="./Assets/script.js"></script>
-  </body>
+<!--Questions-->
+    <div>
+    <p id="questionName"></p>
+        <div class="answers">
+            <p><button id="answerA"></button></p>
+            <p><button id="answerB"></button></p>
+            <p><button id="answerC"></button></p>
+            <p><button id="answerD"></button></p>  
+        </div>
+    </div>
+
+
+    </body>
 </html>
