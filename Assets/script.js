@@ -4,7 +4,11 @@ var startButton = document.getElementById('start-btn');
 var welcome = document.getElementById('welcome');
 var questionOrder = 0;
 const questionEl = document.getElementById('questionName');
-const choicesEl = document.getElementById('answers')
+const answerEl = document.getElementById('answers');
+var timeInterval;
+var timeLeft
+var score = 0;
+var initials;
 
 //Start Button and Timer Set
 startButton.addEventListener('click', 
@@ -12,14 +16,15 @@ function countdown() {
     startButton.style.visibility = "hidden";
     welcome.style.visibility = "hidden";
     questionOrder = 0;
-    var timeLeft = 60;
-    var timeInterval = setInterval(function () {
+    timeLeft = 60;
+    timeInterval = setInterval(function () {
         if (timeLeft > 0) {
             timerEl.textContent = "Timer: " + timeLeft;
             timeLeft--;
         } else {
             timerEl.textContent = 'Timer: 00';
             clearInterval(timeInterval);
+            endQuiz();
     }
     }, 1000);
     questionContainer.classList.remove('hide')
@@ -28,24 +33,71 @@ function countdown() {
 );
 
 function startQuiz() {
+    resetState()
     showQuestion(questions[questionOrder])
 }
 
 
 function showQuestion(question) {
-    questionEl.innerText = question.question
-    choicesEl.innerText = question[questionOrder].choices;
-    for (var i = 0; i < questions.length; i++) {
+        resetState();
+        questionEl.textContent = question.question
+        question.choices.forEach(answer => {
+            const button = document.createElement('button')
+            button.innerText = answer.text
+            button.classList.add('btn')
+            button.dataset.correct = answer.correct
+            button.addEventListener('click', selectAnswer)
+            answerEl.appendChild(button)
+    })
+}
 
+function resetState() {
+    while (answerEl.firstChild) {
+        answerEl.removeChild(answerEl.firstChild)
     }
-   
 }
 
 function selectAnswer(e) {
-
-
+    questionOrder++;
+    const selectedButton = e.target
+    const correct = selectedButton.dataset.correct
+    setStatusClass(correct)
+    //if statement total length --> end else --> increment question index (question Order)
+    if (questionOrder == questions.length) {
+        endQuiz(); }
+    else {
+        console.log("question cycle")
+        showQuestion(questions[questionOrder]);
+    }
 }
 
+function setStatusClass(correct) {
+    if (correct == "true") {
+        score ++
+    }
+    else {
+        timeLeft -= 5
+    }
+    console.log("score", score)
+}
+
+
+function endQuiz() {   
+    clearInterval(timeInterval);
+    window.alert("Quiz Over");
+    initials = window.prompt("Save Initials");
+    resetState();
+    saveScores();
+}
+
+function saveScores() {
+    var savedData = {initials, score}
+    localStorage.setItem("score", JSON.stringify(savedData));
+};
+
+function loadScores() {
+    //save object into and array to not override score
+}
 
 //questions
 const questions = [
@@ -59,9 +111,9 @@ const questions = [
         ]
     },
     {
-        question: "No or Yes?",
+        question: "Yes or No 1?",
         choices: [
-            {text: 'a. yes', correct: true },
+            {text: 'a1. yes', correct: true },
             {text: 'b. no', correct: false },
             {text: 'c. no', correct: false },
             {text: 'd. no', correct: false },
@@ -70,7 +122,7 @@ const questions = [
     {
         question: "Yes or No 2?",
         choices: [
-            {text: 'a. yes', correct: true },
+            {text: 'a2. yes', correct: true },
             {text: 'b. no', correct: false },
             {text: 'c. no', correct: false },
             {text: 'd. no', correct: false },
@@ -79,7 +131,7 @@ const questions = [
     {
         question: "Yes or No 3?",
         choices: [
-            {text: 'a. yes', correct: true },
+            {text: 'a3. yes', correct: true },
             {text: 'b. no', correct: false },
             {text: 'c. no', correct: false },
             {text: 'd. no', correct: false },
@@ -140,166 +192,3 @@ const questions = [
         ]
     }
 ];
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-//variables defined
-
-var score = 0;
-var questionName = document.getElementById('questionName');
-var answerA = document.getElementById("answerA");
-var answerB = document.getElementById("answerB");
-var answerC = document.getElementById("answerC");
-var answerD = document.getElementById("answerD");
-
-// Timer set and starting quiz
-
-var timerEl = document.getElementById('countdown');
-const questionContainerElement = document.getElementById('questionContainer');
-var startButton = document.getElementById('start-btn');
-var welcome = document.getElementById('welcome');
-
-startButton.addEventListener('click', 
-function countdown() {
-    startButton.style.visibility = "hidden";
-    welcome.style.visibility = "hidden";
-    questionOrder = 0;
-    var timeLeft = 60;
-    var timeInterval = setInterval(function () {
-        if (timeLeft > 0) {
-            timerEl.textContent = "Timer: " + timeLeft;
-            timeLeft--;
-        } else {
-            timerEl.textContent = 'Timer: 00';
-            clearInterval(timeInterval);
-    }
-    }, 1000);
-    questionContainerElement.classList.remove('hide')
-    startQuiz();
-}
-);
-/*
-//start quiz function
-
-function startQuiz() {
-    nextQuestion();
-}
-
-function nextQuestion() {
-    for (var i = 0; i < questions.length; i++) {
-        questionName.textContent = questions[questionOrder].question;
-        answerA.textContent = questions[questionOrder].choices[0];
-        answerB.textContent = questions[questionOrder].choices[1];
-        answerC.textContent = questions[questionOrder].choices[2];
-     answerD.textContent = questions[questionOrder].choices[3];
-    }
-}
-*/
-//check answer function
-// tell user if right or wrong
-//game over (timer over)
-//game over (questions answered)
-//high score function
-//record score
-//enter hs w/ intiial
-//save hs
