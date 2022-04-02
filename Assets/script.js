@@ -4,6 +4,7 @@ var startButton = document.getElementById('start-btn');
 var welcome = document.getElementById('welcome');
 var questionOrder = 0;
 const questionEl = document.getElementById('questionName');
+const choicesEl = document.getElementById('answers')
 
 //Start Button and Timer Set
 startButton.addEventListener('click', 
@@ -21,8 +22,8 @@ function countdown() {
             clearInterval(timeInterval);
     }
     }, 1000);
-    startQuiz();
     questionContainer.classList.remove('hide')
+    startQuiz();
 }
 );
 
@@ -30,9 +31,21 @@ function startQuiz() {
     showQuestion(questions[questionOrder])
 }
 
+
 function showQuestion(question) {
     questionEl.innerText = question.question
+    choicesEl.innerText = question[questionOrder].choices;
+    for (var i = 0; i < questions.length; i++) {
+
+    }
+   
 }
+
+function selectAnswer(e) {
+
+
+}
+
 
 //questions
 const questions = [
@@ -46,7 +59,7 @@ const questions = [
         ]
     },
     {
-        question: "Yes or No?",
+        question: "No or Yes?",
         choices: [
             {text: 'a. yes', correct: true },
             {text: 'b. no', correct: false },
@@ -55,7 +68,7 @@ const questions = [
         ]
     },
     {
-        question: "Yes or No?",
+        question: "Yes or No 2?",
         choices: [
             {text: 'a. yes', correct: true },
             {text: 'b. no', correct: false },
@@ -64,7 +77,7 @@ const questions = [
         ]
     },
     {
-        question: "Yes or No?",
+        question: "Yes or No 3?",
         choices: [
             {text: 'a. yes', correct: true },
             {text: 'b. no', correct: false },
@@ -73,7 +86,7 @@ const questions = [
         ]
     },
     {
-        question: "Yes or No?",
+        question: "Yes or No 4?",
         choices: [
             {text: 'a. yes', correct: true },
             {text: 'b. no', correct: false },
@@ -82,7 +95,7 @@ const questions = [
         ]
     },
     {
-        question: "Yes or No?",
+        question: "Yes or No 5?",
         choices: [
             {text: 'a. yes', correct: true },
             {text: 'b. no', correct: false },
@@ -91,7 +104,7 @@ const questions = [
         ]
     },
     {
-        question: "Yes or No?",
+        question: "Yes or No 6?",
         choices: [
             {text: 'a. yes', correct: true },
             {text: 'b. no', correct: false },
@@ -100,7 +113,7 @@ const questions = [
         ]
     },
     {
-        question: "Yes or No?",
+        question: "Yes or No 7?",
         choices: [
             {text: 'a. yes', correct: true },
             {text: 'b. no', correct: false },
@@ -109,7 +122,7 @@ const questions = [
         ]
     },
     {
-        question: "Yes or No?",
+        question: "Yes or No 8?",
         choices: [
             {text: 'a. yes', correct: true },
             {text: 'b. no', correct: false },
@@ -118,7 +131,7 @@ const questions = [
         ]
     },
     {
-        question: "Yes or No?",
+        question: "Yes or No 9?",
         choices: [
             {text: 'a. yes', correct: true },
             {text: 'b. no', correct: false },

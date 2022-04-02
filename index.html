@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./Assets/style.css" rel="stylesheet">
+    <script defer src="./Assets/script.js"></script>
     <title>Timed MC Quiz</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./Assets/style.css" />
-  </head>
-
-  <!--Countdown / high scores-->
-  <body id="body">
+</head>
+<!--Countdown / high scores-->
+<body id="body">
     <div class="container">
         <h2 id="countdown"></h2>
         <h2 id="high-scores">View High Scores!</h2>
@@ -18,20 +17,19 @@
     <h3 id="welcome">Welcome! Test your coding knowledge with this short quiz. Press Start to begin!</h3>
 <!--start button-->
     <div class="start-button">
-        <button class="btn" id="start-btn">START!</button>
+        <button class="start-btn" id="start-btn">START!</button>
     </div>
-    <script src="./Assets/script.js"></script>
 <!--Questions-->
     <div class = "questionSection">
-        <div id = "questionContainer" class="hide">
+        <div id = "questionContainer", class="hide">
             <div id="questionName">Question</div>
-            <div class="answers">
-                <p><button id="answerA">Answer 1</button></p>
-                <p><button id="answerB">Answer 2</button></p>
-                <p><button id="answerC">Answer 3</button></p>
-                <p><button id="answerD">Answer 4</button></p>  
+            <div id="answers">
+                <button class="answerA">Answer 1</button>
+                <button class="answerB">Answer 2</button>
+                <button class="answerC">Answer 3</button>
+                <button class="answerD">Answer 4</button> 
             </div>
         </div>
     </div>
-    </body>
+</body>
 </html>
