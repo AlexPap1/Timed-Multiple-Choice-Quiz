@@ -102,93 +102,93 @@ function loadScores() {
 //questions
 const questions = [
     {
-        question: "Yes or No?",
+        question: "How do you compare two variables in JS?",
         choices: [
-            {text: 'a. yes', correct: true },
-            {text: 'b. no', correct: false },
-            {text: 'c. no', correct: false },
-            {text: 'd. no', correct: false },
+            {text: 'a. =', correct: false },
+            {text: 'b. ==', correct: false },
+            {text: 'c. ===', correct: false },
+            {text: 'd. Both b. and c.', correct: true },
         ]
     },
     {
-        question: "Yes or No 1?",
+        question: "Text contained within {} is referred to as a(n)?",
         choices: [
-            {text: 'a1. yes', correct: true },
-            {text: 'b. no', correct: false },
-            {text: 'c. no', correct: false },
-            {text: 'd. no', correct: false },
+            {text: 'a1. element', correct: false },
+            {text: 'b. object', correct: true },
+            {text: 'c. string', correct: false },
+            {text: 'd. anchor', correct: false },
         ]
     },
     {
-        question: "Yes or No 2?",
+        question: "Which is not a proper way to comment?",
         choices: [
-            {text: 'a2. yes', correct: true },
-            {text: 'b. no', correct: false },
-            {text: 'c. no', correct: false },
-            {text: 'd. no', correct: false },
+            {text: 'a2. //', correct: false },
+            {text: 'b. /*', correct: false },
+            {text: 'c. */', correct: true },
+            {text: 'd. <!--', correct: false },
         ]
     },
     {
-        question: "Yes or No 3?",
+        question: "How do you group multiple variables into an object?",
         choices: [
-            {text: 'a3. yes', correct: true },
-            {text: 'b. no', correct: false },
-            {text: 'c. no', correct: false },
-            {text: 'd. no', correct: false },
+            {text: 'a3. [variable1, variable2]', correct: false },
+            {text: 'b. {variable1, varialble2}', correct: true },
+            {text: 'c. (variable1, variable2)', correct: false },
+            {text: 'd. {"variable1" + "variable2")', correct: false },
         ]
     },
     {
-        question: "Yes or No 4?",
+        question: "What is the speific term defined as a variable that can either be true of false?",
         choices: [
-            {text: 'a. yes', correct: true },
-            {text: 'b. no', correct: false },
-            {text: 'c. no', correct: false },
-            {text: 'd. no', correct: false },
+            {text: 'a. Boolean', correct: true },
+            {text: 'b. variable', correct: false },
+            {text: 'c. element', correct: false },
+            {text: 'd. constant', correct: false },
         ]
     },
     {
-        question: "Yes or No 5?",
+        question: "How do you call a variable in a function?",
         choices: [
-            {text: 'a. yes', correct: true },
-            {text: 'b. no', correct: false },
-            {text: 'c. no', correct: false },
-            {text: 'd. no', correct: false },
+            {text: 'a. function name () { variable }', correct: false },
+            {text: 'b. variable function name () { }', correct: false },
+            {text: 'c. variable function (name) { }', correct: false },
+            {text: 'd. function name (variable) { }', correct: true },
         ]
     },
     {
-        question: "Yes or No 6?",
+        question: "Where should you include your <source> for linking your .js to your .html?",
         choices: [
-            {text: 'a. yes', correct: true },
-            {text: 'b. no', correct: false },
-            {text: 'c. no', correct: false },
-            {text: 'd. no', correct: false },
+            {text: 'a. in the head with a defer notation', correct: false },
+            {text: 'b. at the end of your .html', correct: false },
+            {text: 'c. anywhere', correct: false },
+            {text: 'd. either a. or b.', correct: true },
         ]
     },
     {
-        question: "Yes or No 7?",
+        question: "Where shoudl you include your index.html?",
         choices: [
-            {text: 'a. yes', correct: true },
-            {text: 'b. no', correct: false },
-            {text: 'c. no', correct: false },
-            {text: 'd. no', correct: false },
+            {text: 'a. anywhere', correct: false },
+            {text: 'b. Assets folder', correct: false },
+            {text: 'c. The Root folder', correct: true },
+            {text: 'd. None of the Above', correct: false },
         ]
     },
     {
-        question: "Yes or No 8?",
+        question: "What is the purpose of an anchor tag?",
         choices: [
-            {text: 'a. yes', correct: true },
-            {text: 'b. no', correct: false },
-            {text: 'c. no', correct: false },
-            {text: 'd. no', correct: false },
+            {text: 'a. to create a hyperlink on the webpage', correct: true },
+            {text: 'b. it functions the same as an h1, h2, etc.', correct: false },
+            {text: 'c. it is the same as a <div>', correct: false },
+            {text: 'd. it is the same as a <p>', correct: false },
         ]
     },
     {
-        question: "Yes or No 9?",
+        question: "EXTRA CREDIT! What is the color value for the background on this page?",
         choices: [
-            {text: 'a. yes', correct: true },
-            {text: 'b. no', correct: false },
-            {text: 'c. no', correct: false },
-            {text: 'd. no', correct: false },
+            {text: 'a. rgb(254, 255, 213)', correct: true },
+            {text: 'b. rgb(97, 82, 139)', correct: false },
+            {text: 'c. rgb(17, 144, 225)', correct: false },
+            {text: 'd. rgb(80, 136, 193)', correct: false },
         ]
     }
 ];
