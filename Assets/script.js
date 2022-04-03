@@ -1,3 +1,4 @@
+//variables
 var timerEl = document.getElementById('countdown');
 const questionContainer = document.getElementById('questionContainer');
 var startButton = document.getElementById('start-btn');
@@ -9,6 +10,7 @@ var timeInterval;
 var timeLeft
 var score = 0;
 var initials;
+var HS = document.getElementById('highScore');
 
 //Start Button and Timer Set
 startButton.addEventListener('click', 
@@ -32,12 +34,13 @@ function countdown() {
 }
 );
 
+//Starts Quiz
 function startQuiz() {
     resetState()
     showQuestion(questions[questionOrder])
 }
 
-
+//Reveals Question
 function showQuestion(question) {
         resetState();
         questionEl.textContent = question.question
@@ -51,12 +54,14 @@ function showQuestion(question) {
     })
 }
 
+//Resets answer buttons
 function resetState() {
     while (answerEl.firstChild) {
         answerEl.removeChild(answerEl.firstChild)
     }
 }
 
+//cycles through questions and asesses correct answers
 function selectAnswer(e) {
     questionOrder++;
     const selectedButton = e.target
@@ -71,17 +76,18 @@ function selectAnswer(e) {
     }
 }
 
+//adds to score or removes tiem based on boolean value of correctness of answers
 function setStatusClass(correct) {
     if (correct == "true") {
         score ++
     }
     else {
-        timeLeft -= 5
+        timeLeft -= 10
     }
     console.log("score", score)
 }
 
-
+//ends quiz by closing timer, and prompts user initials
 function endQuiz() {   
     clearInterval(timeInterval);
     window.alert("Quiz Over");
@@ -90,16 +96,17 @@ function endQuiz() {
     saveScores();
 }
 
+//saves initials and scores to local storage
 function saveScores() {
     var savedData = {initials, score}
+    savedData.textContent = (initials + " your score is: " + score)
+    console.log (savedData.textContent)
     localStorage.setItem("score", JSON.stringify(savedData));
+    HS.textContent = savedData.textContent = (initials + " your score is: " + score + "!")
+    console.log(HS);
 };
 
-function loadScores() {
-    //save object into and array to not override score
-}
-
-//questions
+//questions and answer choices
 const questions = [
     {
         question: "How do you compare two variables in JS?",
